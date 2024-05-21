@@ -1,0 +1,99 @@
+:root {
+  --font-size: 16px;
+  --common-padding: 8px;
+  --primary-bg: #461111eb;
+  --secondary-bg: white;
+  --primary-color: rgba(33, 37, 41);
+  --secondary-color: rgba(33, 37, 41, 0.5);
+  --shadow-color: #6b6b6b;
+  --shadow-blur-radius: 38px;
+}
+html,
+body {
+  scroll-behavior: smooth !important;
+  background-color: white;
+}
+.animated {
+  transition: all 500ms;
+}
+.stop-scrolling {
+  transition: none !important;
+  height: 100%;
+  overflow: hidden;
+  padding-right: 10px;
+}
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropshadow {
+  -webkit-box-shadow: 0px 0px var(--shadow-blur-radius) 1px var(--shadow-color);
+  -moz-box-shadow: 0px 0px var(--shadow-blur-radius) 1px var(--shadow-color);
+  box-shadow: 0px 0px var(--shadow-blur-radius) 1px var(--shadow-color);
+  mix-blend-mode: multiply;
+}
+.fullscreen {
+  /* min-width: 100vw; */
+  min-height: 100vh;
+  position: relative;
+  padding: var(--common-padding);
+}
+.auto-scroll-top-indicator {
+  position: absolute;
+  top: 5%;
+}
+.auto-scroll-bottom-indicator {
+  position: absolute;
+  bottom: 5%;
+}
+.primary-bg {
+  background-color: var(--primary-bg);
+}
+.secondary-bg {
+  background-color: var(--secondary-bg);
+}
+body {
+  margin: 0;
+  font-size: var(--font-size);
+}
+.primary-text {
+  color: var(--primary-color);
+}
+.secondary-text {
+  color: var(--secondary-color);
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #cccccc;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--shadow-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--shadow-color);
+}
+
+@media only screen and (max-width: 1920px) {
+}
+@media only screen and (max-width: 1366px) {
+}
+@media only screen and (max-width: 1280) {
+}
+@media only screen and (max-width: 1024px) {
+}
+@media only screen and (max-width: 768px) {
+}
+@media only screen and (max-width: 601px) {
+}
+@media only screen and (max-width: 500px) {
+}

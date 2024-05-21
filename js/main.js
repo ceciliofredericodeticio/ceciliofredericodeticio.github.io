@@ -1,19 +1,34 @@
-function readTextFile(file) {
-  var rawFile = new XMLHttpRequest(); // XMLHttpRequest (often abbreviated as XHR) is a browser object accessible in JavaScript that provides data in XML, JSON, but also HTML format, or even a simple text using HTTP requests.
-  rawFile.open("GET", file, false); // open with method GET the file with the link file ,  false (synchronous)
-  rawFile.onreadystatechange = function () {
-    if (rawFile.readyState === 4) {
-      // readyState = 4: request finished and response is ready
-      if (rawFile.status === 200) {
-        // status 200: "OK"
-        var allText = rawFile.responseText; //  Returns the response data as a string
-        console.log(allText); // display text on the console
-      }
-    }
-  };
-  rawFile.send(null); //Sends the request to the server Used for GET requests with param null
-}
+let enable_scroll = true;
+
 window.onload = () => {
-  console.log("page loaded");
-  readTextFile("./data/data.json");
+  let auto_scroll_el = document.getElementsByClassName("auto-scroll");
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      if (enable_scroll === false) return;
+      let visible_el = entries.filter((row) => {
+        return row?.isIntersecting === true;
+      });
+      if (visible_el.length !== 0 && visible_el[0].isIntersecting === true) {
+        let dataSectionName = visible_el[0]?.target?.getAttribute("data-section-name") || "";
+        enable_scroll = false;
+        document.body.className = "stop-scrolling";
+        setTimeout(() => {
+          document.getElementById(dataSectionName).scrollIntoView({ behavior: "smooth" });
+          setTimeout(() => {
+            enable_scroll = true;
+            document.body.className = "";
+          }, 500);
+        }, 500);
+      }
+    },
+    { threshold: [0] }
+  );
+  document.addEventListener("scroll", (e) => {
+    console.log("enable_scroll", enable_scroll);
+  });
+  for (let i = 0; i < auto_scroll_el.length; i++) {
+    const el = auto_scroll_el[i];
+    observer.observe(el);
+  }
 };
