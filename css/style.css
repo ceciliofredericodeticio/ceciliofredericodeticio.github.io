@@ -1,12 +1,13 @@
 :root {
   --font-size: 16px;
   --common-padding: 8px;
-  --primary-bg: #461111eb;
+  --primary-bg: #e27a7a;
   --secondary-bg: white;
   --primary-color: rgba(33, 37, 41);
   --secondary-color: rgba(33, 37, 41, 0.5);
   --shadow-color: #6b6b6b;
-  --shadow-blur-radius: 38px;
+  --shadow-blur-radius: 8px;
+  --scroll-color: #6b6b6b;
 }
 html,
 body {
@@ -27,16 +28,13 @@ body {
   justify-content: center;
   align-items: center;
 }
-.dropshadow {
-  -webkit-box-shadow: 0px 0px var(--shadow-blur-radius) 1px var(--shadow-color);
-  -moz-box-shadow: 0px 0px var(--shadow-blur-radius) 1px var(--shadow-color);
-  box-shadow: 0px 0px var(--shadow-blur-radius) 1px var(--shadow-color);
-  mix-blend-mode: multiply;
-}
+
 .fullscreen {
+  top: 0;
   /* min-width: 100vw; */
   min-height: 100vh;
-  position: relative;
+  max-height: 100vh;
+  position: sticky;
   padding: var(--common-padding);
 }
 .auto-scroll-top-indicator {
@@ -49,10 +47,46 @@ body {
 }
 .primary-bg {
   background-color: var(--primary-bg);
+  -webkit-box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  -moz-box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
 }
+/* .primary-bg.dropshadow::before {
+  -webkit-box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  -moz-box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+} */
 .secondary-bg {
   background-color: var(--secondary-bg);
 }
+.secondary-bg.dropshadow::before {
+  -webkit-box-shadow: 0px -4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  -moz-box-shadow: 0px -4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  box-shadow: 0px -4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+/* .secondary-bg.dropshadow {
+  -webkit-box-shadow: 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  -moz-box-shadow: 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  box-shadow: 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+} */
 body {
   margin: 0;
   font-size: var(--font-size);
@@ -75,12 +109,12 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--shadow-color);
+  background: var(--scroll-color);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--shadow-color);
+  background: var(--scroll-color);
 }
 
 @media only screen and (max-width: 1920px) {

@@ -1,6 +1,27 @@
 let enable_scroll = true;
 
 window.onload = () => {
+  init_fullscreen_z_index().then(() => {
+    // init_scroll_restriction();
+  });
+};
+const init_fullscreen_z_index = async () => {
+  let sections = document.getElementsByClassName("card-section");
+  for (let i = 0; i < sections.length; i++) {
+    const section = sections[i];
+    section.style = `z-Index: ${i}`;
+    section.id = `section-${i}`;
+    let content = section.innerHTML;
+    section.innerHTML =
+      `
+      <anchor class="auto-scroll auto-scroll-top-indicator" data-section-name="section-${i}" id="top-indicator-${i}"></anchor>
+      <anchor class="auto-scroll auto-scroll-bottom-indicator" data-section-name="section-${i}" id="bottom-indicator-${i}"></anchor>
+      <h2>SECTION - ${i}</h2>
+      ` + content;
+  }
+  return true;
+};
+const init_scroll_restriction = () => {
   let auto_scroll_el = document.getElementsByClassName("auto-scroll");
 
   var observer = new IntersectionObserver(
@@ -24,9 +45,7 @@ window.onload = () => {
     },
     { threshold: [0] }
   );
-  document.addEventListener("scroll", (e) => {
-    console.log("enable_scroll", enable_scroll);
-  });
+
   for (let i = 0; i < auto_scroll_el.length; i++) {
     const el = auto_scroll_el[i];
     observer.observe(el);
