@@ -16,7 +16,7 @@ body {
   background-color: white;
 }
 html {
-  /* make scroll snap on element with # scroll-snap-align css attrib */
+  /* make scroll snap on element with # scroll-snap-align css attrib .*/
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(var(--fullscreen-height));
   scroll-snap-type: y mandatory;
