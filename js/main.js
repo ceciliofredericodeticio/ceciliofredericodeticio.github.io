@@ -2,7 +2,7 @@ let enable_scroll = true;
 
 window.onload = () => {
   init_fullscreen_z_index().then(() => {
-    // init_scroll_restriction();
+    // init_scroll_restriction();.
   });
 };
 const init_fullscreen_z_index = async () => {
