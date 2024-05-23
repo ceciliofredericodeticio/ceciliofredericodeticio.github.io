@@ -5,17 +5,27 @@
   --secondary-bg: white;
   --primary-color: rgba(33, 37, 41);
   --secondary-color: rgba(33, 37, 41, 0.5);
-  --shadow-color: #6b6b6b;
+  --shadow-color: #573030;
   --shadow-blur-radius: 8px;
   --scroll-color: #6b6b6b;
+  --fullscreen-height: 98.3vh;
 }
 html,
 body {
-  scroll-behavior: smooth !important;
+  /* scroll-behavior: smooth !important; */
   background-color: white;
 }
+html {
+  /* make scroll snap on element with # scroll-snap-align css attrib */
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(var(--fullscreen-height));
+  scroll-snap-type: y mandatory;
+}
 .animated {
-  transition: all 500ms;
+  /* transition: all 500ms; */
+}
+.animated-scroll {
+  /* transition: all 1000ms; */
 }
 .stop-scrolling {
   transition: none !important;
@@ -32,10 +42,12 @@ body {
 .fullscreen {
   top: 0;
   /* min-width: 100vw; */
-  min-height: 100vh;
-  max-height: 100vh;
-  position: sticky;
+  min-height: var(--fullscreen-height);
+  height: var(--fullscreen-height);
+  max-height: var(--fullscreen-height);
+  position: relative;
   padding: var(--common-padding);
+  scroll-snap-align: start;
 }
 .auto-scroll-top-indicator {
   position: absolute;
@@ -47,6 +59,8 @@ body {
 }
 .primary-bg {
   background-color: var(--primary-bg);
+}
+.primary-bg.dropshadow {
   -webkit-box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
   -moz-box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
   box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
