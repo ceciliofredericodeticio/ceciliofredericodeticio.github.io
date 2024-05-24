@@ -1,14 +1,5 @@
-:root {
-  --font-size: 16px;
-  --common-padding: 8px;
-  --primary-bg: #e27a7a;
-  --secondary-bg: white;
-  --primary-color: rgba(33, 37, 41);
-  --secondary-color: rgba(33, 37, 41, 0.5);
-  --shadow-color: #573030;
-  --shadow-blur-radius: 8px;
-  --scroll-color: #6b6b6b;
-  --fullscreen-height: 98.3vh;
+* {
+  box-sizing: border-box;
 }
 html,
 body {
@@ -18,14 +9,17 @@ body {
 html {
   /* make scroll snap on element with # scroll-snap-align css attrib .*/
   scroll-snap-type: mandatory;
+  scroll-behavior: smooth;
   scroll-snap-points-y: repeat(var(--fullscreen-height));
   scroll-snap-type: y mandatory;
+  font-family: var(--font-family);
 }
+
 .animated {
-  /* transition: all 500ms; */
+  transition: all 500ms;
 }
 .animated-scroll {
-  /* transition: all 1000ms; */
+  transition: all 1000ms;
 }
 .stop-scrolling {
   transition: none !important;
@@ -49,6 +43,7 @@ html {
   padding: var(--common-padding);
   scroll-snap-align: start;
 }
+
 .auto-scroll-top-indicator {
   position: absolute;
   top: 5%;
@@ -61,28 +56,18 @@ html {
   background-color: var(--primary-bg);
 }
 .primary-bg.dropshadow {
-  -webkit-box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
-  -moz-box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
-  box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  -webkit-box-shadow: var(--fullscreen-primary-shadow);
+  -moz-box-shadow: var(--fullscreen-primary-shadow);
+  box-shadow: var(--fullscreen-primary-shadow);
 }
-/* .primary-bg.dropshadow::before {
-  -webkit-box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
-  -moz-box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
-  box-shadow: inset 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-} */
+
 .secondary-bg {
   background-color: var(--secondary-bg);
 }
 .secondary-bg.dropshadow::before {
-  -webkit-box-shadow: 0px -4px var(--shadow-blur-radius) 0px var(--shadow-color);
-  -moz-box-shadow: 0px -4px var(--shadow-blur-radius) 0px var(--shadow-color);
-  box-shadow: 0px -4px var(--shadow-blur-radius) 0px var(--shadow-color);
+  -webkit-box-shadow: var(--fullscreen-secondary-shadow);
+  -moz-box-shadow: var(--fullscreen-secondary-shadow);
+  box-shadow: var(--fullscreen-secondary-shadow);
   content: "";
   position: absolute;
   top: 0;
@@ -90,20 +75,11 @@ html {
   left: 0;
   bottom: 0;
 }
-/* .secondary-bg.dropshadow {
-  -webkit-box-shadow: 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
-  -moz-box-shadow: 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
-  box-shadow: 0px 4px var(--shadow-blur-radius) 0px var(--shadow-color);
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-} */
+
 body {
   margin: 0;
   font-size: var(--font-size);
+  line-height: 1;
 }
 .primary-text {
   color: var(--primary-color);
@@ -130,18 +106,21 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scroll-color);
 }
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  /* outline: unset; */
+}
 
-@media only screen and (max-width: 1920px) {
-}
-@media only screen and (max-width: 1366px) {
-}
-@media only screen and (max-width: 1280) {
-}
-@media only screen and (max-width: 1024px) {
-}
-@media only screen and (max-width: 768px) {
-}
-@media only screen and (max-width: 601px) {
-}
-@media only screen and (max-width: 500px) {
+.btn-csv {
+  border: 1px solid var(--introduction-font-color);
+  border-radius: 24px;
+  padding: 12px 24px;
+  color: var(--introduction-font-color);
+  -webkit-box-shadow: var(--profile-drop-shadow);
+  -moz-box-shadow: var(--profile-drop-shadow);
+  box-shadow: var(--button-drop-shadow);
+  font-size: calc(var(--introduction-font-size) * 0.5);
+  text-decoration: none;
 }

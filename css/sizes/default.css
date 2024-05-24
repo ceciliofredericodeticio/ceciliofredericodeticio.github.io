@@ -1,0 +1,47 @@
+@media only screen and (min-width: 1601px) {
+  .fullscreen-content {
+    width: 100%;
+    max-width: 1600px;
+  }
+  /* introduction text style start */
+  .introduction-content .text {
+    color: var(--introduction-font-color);
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .introduction-content .text.greeting {
+    font-size: var(--introduction-font-size);
+  }
+  .introduction-content .text.name {
+    font-size: calc(var(--introduction-font-size) * 2.3);
+    stroke: var(--introduction-font-color);
+    -webkit-text-stroke-color: var(--introduction-font-color);
+    stroke-width: 2px;
+    -webkit-text-stroke-width: 2px;
+    color: transparent;
+    margin-bottom: 1.5rem;
+  }
+  .introduction-content .text.position {
+    font-size: var(--introduction-font-size);
+    margin-bottom: 2rem;
+  }
+  /* introduction text style end */
+  /* profile image start */
+  .introduction-image {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 5%;
+  }
+  .introduction-image img {
+    max-width: 70%;
+    position: relative;
+    border-radius: 50%;
+    -webkit-box-shadow: var(--profile-drop-shadow);
+    -moz-box-shadow: var(--profile-drop-shadow);
+    box-shadow: var(--profile-drop-shadow);
+  }
+  /* profile image end */
+}

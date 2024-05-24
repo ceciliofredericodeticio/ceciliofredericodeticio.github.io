@@ -1,0 +1,19 @@
+@media only screen and (max-width: 1366px) {
+  /* introduction text style start */
+  .introduction-content .text {
+  }
+  .introduction-content .text.greeting {
+  }
+  .introduction-content .text.name {
+  }
+  .introduction-content .text.position {
+  }
+  /* introduction text style end */
+  /* profile image start */
+  .introduction-image img {
+  }
+  /* profile image end */
+  .fullscreen-content {
+    max-width: 1600px;
+  }
+}

@@ -16,7 +16,6 @@ const init_fullscreen_z_index = async () => {
       `
       <anchor class="auto-scroll auto-scroll-top-indicator" data-section-name="section-${i}" id="top-indicator-${i}"></anchor>
       <anchor class="auto-scroll auto-scroll-bottom-indicator" data-section-name="section-${i}" id="bottom-indicator-${i}"></anchor>
-      <h2>SECTION - ${i}</h2>
       ` + content;
   }
   return true;
@@ -50,4 +49,8 @@ const init_scroll_restriction = () => {
     const el = auto_scroll_el[i];
     observer.observe(el);
   }
+};
+const on_image_error = (e) => {
+  console.log("image_error", e);
+  e.src = "./img/svg/image_placeholder.svg";
 };
