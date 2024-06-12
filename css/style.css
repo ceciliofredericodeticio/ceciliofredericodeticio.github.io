@@ -32,7 +32,12 @@ html {
   justify-content: center;
   align-items: center;
 }
-
+.flex-direction-column {
+  flex-direction: column;
+}
+.flex-direction-row {
+  flex-direction: row;
+}
 .fullscreen {
   top: 0;
   /* min-width: 100vw; */
@@ -81,11 +86,24 @@ body {
   font-size: var(--font-size);
   line-height: 1;
 }
+.display-flex {
+  display: flex;
+}
+.bold {
+  font-weight: bold;
+}
+.flex-50 {
+  flex: 50%;
+}
 .primary-text {
   color: var(--primary-color);
 }
 .secondary-text {
   color: var(--secondary-color);
+}
+.sub-title {
+  font-size: var(--subtitle-font-size);
+  font-weight: var(--subtitle-font-size);
 }
 /* width */
 ::-webkit-scrollbar {

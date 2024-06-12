@@ -1,9 +1,13 @@
 @media only screen and (min-width: 1601px) {
   .fullscreen-content {
     width: 100%;
-    max-width: 1600px;
+    max-width: 1366px;
   }
   /* introduction text style start */
+  .introduction-content,
+  .about-me-content {
+    width: 50%;
+  }
   .introduction-content .text {
     color: var(--introduction-font-color);
     margin: 0;
@@ -27,7 +31,8 @@
   }
   /* introduction text style end */
   /* profile image start */
-  .introduction-image {
+  .introduction-image,
+  .about-me-image {
     width: 50%;
     display: flex;
     flex-direction: row;
@@ -43,5 +48,31 @@
     -moz-box-shadow: var(--profile-drop-shadow);
     box-shadow: var(--profile-drop-shadow);
   }
+  .about-me-image img {
+    max-width: 70%;
+    position: relative;
+    border-radius: 6px;
+    -webkit-box-shadow: var(--profile-drop-shadow);
+    -moz-box-shadow: var(--profile-drop-shadow);
+    box-shadow: var(--profile-drop-shadow);
+  }
   /* profile image end */
+  .section-title {
+    margin-bottom: 20px;
+  }
+
+  .section-title h1 {
+    font-size: 2.23rem;
+  }
+  .secondary-bg .section-title h1 {
+    color: var(--about-me-font-color);
+  }
+  .about-me-content .content {
+    line-height: 2.2;
+    font-family: Roboto, sans-serif;
+    text-align: justify;
+  }
+  .gap {
+    gap: 16px;
+  }
 }
