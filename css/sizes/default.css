@@ -65,7 +65,10 @@
     font-size: 2.23rem;
   }
   .secondary-bg .section-title h1 {
-    color: var(--about-me-font-color);
+    color: var(--secondary-bg-font-color);
+  }
+  .primary-bg .section-title h1 {
+    color: var(--primary-bg-font-color);
   }
   .about-me-content .content {
     line-height: 2.2;
