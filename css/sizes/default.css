@@ -64,10 +64,12 @@
   .section-title h1 {
     font-size: 2.23rem;
   }
-  .secondary-bg .section-title h1 {
+  .secondary-bg .section-title h1,
+  .secondary-bg .section-sub-title h1 {
     color: var(--secondary-bg-font-color);
   }
-  .primary-bg .section-title h1 {
+  .primary-bg .section-title h1,
+  .primary-bg .section-sub-title h1 {
     color: var(--primary-bg-font-color);
   }
   .about-me-content .content {
@@ -77,5 +79,19 @@
   }
   .gap {
     gap: 16px;
+  }
+
+  .timeline-item-content-title {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  .timeline-item-content-sub-title {
+    font-size: 1.1rem;
+    color: rgba(245, 245, 245, 0.789);
+  }
+  .timeline-item-content-description {
+    font-size: 1rem;
+    color: rgba(245, 245, 245, 0.789);
   }
 }
